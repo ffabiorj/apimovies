@@ -1,5 +1,5 @@
-from app.initializer import init_webapp
+from app.initializer import app
 
 
-app = init_webapp()
-app.run()
+if __name__ == '__main__':
+  app.run()
