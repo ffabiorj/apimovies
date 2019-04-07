@@ -25,3 +25,6 @@ class Config:
 
     # # Secret key for signing cookies
     SECRET_KEY = "secret"
+
+    # # JWT Secret key
+    JWT_SECRET_KEY = "secret"

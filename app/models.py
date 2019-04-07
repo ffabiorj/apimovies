@@ -1,4 +1,5 @@
 from flask_sqlalchemy import SQLAlchemy
+from passlib.hash import pbkdf2_sha256
 
 
 db = SQLAlchemy()
@@ -29,3 +30,18 @@ class Cast(db.Model):
 
     def __str__(self):
         return self.role
+
+
+class User(db.Model):
+
+    __tablename__ = 'users'
+
+    id = db.Column(db.Integer, primary_key=True)
+    username = db.Column(db.String(255), nullable=False)
+    password = db.Column(db.String(255), nullable=False)
+
+    def gen_hash(self):
+        self.password = pbkdf2_sha256.hash(self.password)
+
+    def verify_password(self, password):
+        return pbkdf2_sha256.verify(password, self.password)
