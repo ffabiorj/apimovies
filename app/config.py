@@ -7,12 +7,12 @@ class Config:
     # Statement for enabling the development environment
     DEBUG = True
     TESTING = False
-    ENV = 'development'
+    ENV = os.getenv('RACK_ENV', default='development')
 
 
     # # Define the database - we are working with
     # # SQLite for this example
-    SQLALCHEMY_DATABASE_URI = 'sqlite:///' + os.path.join(BASE_DIR, 'movie.db')
+    SQLALCHEMY_DATABASE_URI = os.getenv('DATABASE_URL', default='sqlite:///' + os.path.join(BASE_DIR, 'movie.db'))
     SQLALCHEMY_TRACK_MODIFICATIONS = False
     DATABASE_CONNECT_OPTIONS = {}
 
