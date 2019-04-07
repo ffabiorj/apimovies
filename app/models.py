@@ -1,9 +1,7 @@
 from flask_sqlalchemy import SQLAlchemy
-from app.initializer import app
 
 
-db = SQLAlchemy(app)
-
+db = SQLAlchemy()
 
 class Movie(db.Model):
 
