@@ -34,7 +34,8 @@ class MoviesDetailTests(BaseMoviesTests):
         response = self.client.get(url_for('api.movie', id=1))
         self.assertEqual(401, response.status_code)
 
-    def test_get_status_code(self):
+    def test_get_status_code_200(self):
+        MovieFactory()
         response = self.client.get(url_for('api.movie', id=1), headers=self.header)
         self.assertEqual(200, response.status_code)
 
@@ -45,8 +46,12 @@ class MoviesDetailTests(BaseMoviesTests):
         response = self.client.get(url_for('api.movie', id=1), headers=self.header)
         self.assertDictEqual(expected, response.json)
 
+    def test_get_status_code_404(self):
+        response = self.client.get(url_for('api.movie', id=0), headers=self.header)
+        self.assertEqual(404, response.status_code)
 
-class CreateLoginTests(BaseMoviesTests):
+
+class CreateUserTests(BaseTests):
     def test_api_should_register_user(self):
         user = {
             'username': 'test',
@@ -70,27 +75,27 @@ class CreateLoginTests(BaseMoviesTests):
         expected = {'password': ['Missing data for required field.']}
 
         response = self.client.post(url_for('api.register'), json=user)
-        self.assertEqual(response.status_code, 401)
+        self.assertEqual(response.status_code, 400)
 
         self.assertEqual(response.json, expected)
 
 
-class LoginApiTests(BaseMoviesTests):
+class LoginTests(BaseTests):
     def test_login_sould_return_200(self):
         user = {
             'username': 'api_movies_test', 
             'password': 'q1w2e3r4'
         }
-        response  = self.client.post(url_for('api.login'), json=user, headers=self.header)
+        response  = self.client.post(url_for('api.login'), json=user)
         self.assertEqual(200, response.status_code)
 
-    def test_wrong_login_sould_return_error_messa(self):
+    def test_wrong_login_sould_return_error_message(self):
         user = {
             'username': 'api_movies', 
             'password': 'q1w2e3r4'
         }
         expected = {"message": "Credenciais invalidas"}
-        response  = self.client.post(url_for('api.login'), json=user, headers=self.header)
+        response  = self.client.post(url_for('api.login'), json=user)
         
         self.assertEqual(401, response.status_code)
 

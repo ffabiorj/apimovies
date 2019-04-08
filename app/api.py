@@ -13,16 +13,17 @@ api = Blueprint('api', __name__)
 def movies():
     movie = Movie.query.all()
     movie_schema = MovieSchema()
-    return movie_schema.jsonify(movie, many=True)
+    return movie_schema.jsonify(movie, many=True), 200
 
 
 @api.route('/movies/<id>', methods=['GET'])
 @jwt_required
 def movie(id):
     movie = Movie.query.get(id)
-    movie_schema = MovieSchema()
-    return movie_schema.jsonify(movie)
-
+    if movie:
+        movie_schema = MovieSchema()
+        return movie_schema.jsonify(movie), 200
+    return jsonify({}), 404
 
 @api.route('/user', methods=['POST'])
 def register():
@@ -31,7 +32,7 @@ def register():
     user, error = us.load(request.json)
 
     if error:
-        return jsonify(error), 401
+        return jsonify(error), 400
 
     user.gen_hash()
 
@@ -46,7 +47,7 @@ def login():
     user, error = UserSchema().load(request.json)
 
     if error:
-        return jsonify(error), 401
+        return jsonify(error), 400
 
     user = User.query.filter_by(username=user.username).first()
 
