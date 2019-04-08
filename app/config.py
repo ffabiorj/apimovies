@@ -5,10 +5,9 @@ class Config:
     BASE_DIR = os.path.abspath(os.path.dirname(__file__))
 
     # Statement for enabling the development environment
-    DEBUG = True
-    TESTING = False
     ENV = os.getenv('RACK_ENV', default='development')
-
+    DEBUG = True if ENV == 'development' else False
+    TESTING = True if ENV == 'test' else False
 
     # # Define the database - we are working with
     # # SQLite for this example
