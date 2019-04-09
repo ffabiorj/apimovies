@@ -8,10 +8,10 @@ migrate:
 	FLASK_APP=run.py flask db upgrade
 
 setup.test:
-	RACK_ENV=test DATABASE_URL=sqlite:///$(HOME)/movies_test.db flask db upgrade
+	FLASK_APP=run.py RACK_ENV=test DATABASE_URL=sqlite:///$(HOME)/movies_test.db flask db upgrade
 
 test:
-	RACK_ENV=test DATABASE_URL=sqlite:///$(HOME)/movies_test.db PYTHONPATH=./ python -W ignore::DeprecationWarning -m unittest discover -v -s tests/ -p '*_tests.py'
+	FLASK_APP=run.py RACK_ENV=test DATABASE_URL=sqlite:///$(HOME)/movies_test.db PYTHONPATH=./ python -W ignore::DeprecationWarning -m unittest discover -v -s tests/ -p '*_tests.py'
 
 deploy:
 	zappa deploy

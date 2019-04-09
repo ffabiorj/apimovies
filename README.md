@@ -42,7 +42,7 @@ make test
 
 ```
 acesse https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-install.html
-make deploy
+make update
 ```
 
 ## Run o crawler
@@ -55,3 +55,7 @@ Realizar cadastro e gerar api key https://www.themoviedb.org/
 export THEMOVIEDB_API_KEY=VALOR_API_KEY
 make themoviedb.crawler
 ```
+
+## Observação para o testes utilizando postamn:
+* O backup do colletions do postman se encontra na raiz do repositório.
+* Para acessa as informações da api é necessário criar um user, logar para gerar o token e depois adicionar o token no header.
