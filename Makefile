@@ -4,6 +4,9 @@ setup:
 run:
 	python run.py
 
+migrate:
+	FLASK_APP=run.py flask db upgrade
+
 setup.test:
 	RACK_ENV=test DATABASE_URL=sqlite:///$(HOME)/movies_test.db flask db upgrade
 
