@@ -28,7 +28,6 @@ make run
 
 ```
 
-
 ## Deploy para AWS
 1. Configurar awscli
 2. Executar o comando de deploy
@@ -36,4 +35,15 @@ make run
 ```
 acesse https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-install.html
 make deploy
+```
+
+## Run crawler
+1. Criar um usuário no api themoviedb
+2. Setar a env com api key
+3. Executar o comando
+
+```
+Realizar cadastro e gerar api key https://www.themoviedb.org/
+export THEMOVIEDB_API_KEY=VALOR_API_KEY
+make themoviedb.crawler
 ```
