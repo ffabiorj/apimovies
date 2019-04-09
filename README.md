@@ -3,18 +3,18 @@ Ferramentas utilizadas no desenvolvimento
 * Flask
 * flask_sqlalchemy
 * flask_migrate
-* flask_marshmallow
+* flask-marshmallow
 * marshmallow_sqlalchemy
 * flask-jwt-extended
 
 ## Como executar o api localmente.
 
 1. Clone o repositório.
-2. Crie um virtualenv com python 3.7
+2. Crie um virtualenv com python 3.7.
 3. Ative o virtualenv.
 4. Instale as dependências.
-5. Export Variável de ambiente
-6. Execute o projeto
+5. Execute o projeto.
+6. Acesse o link.
 
 
 ```
@@ -22,10 +22,9 @@ git clone git@github.com:ffabiorj/apimovies.git
 cd apimovies
 python3 -m venv .venv
 sourch .venv/bin/activate
-export FLASK_APP=run.py
 make setup
 make run
-
+http://127.0.0.1:5000/api/v1/movies
 ```
 
 ## Execute tests
@@ -46,7 +45,7 @@ acesse https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-install.html
 make deploy
 ```
 
-## Run crawler
+## Run o crawler
 1. Criar um usuário no api themoviedb
 2. Setar a env com api key
 3. Executar o comando
