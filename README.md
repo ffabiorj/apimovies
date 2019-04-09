@@ -56,6 +56,6 @@ export THEMOVIEDB_API_KEY=VALOR_API_KEY
 make themoviedb.crawler
 ```
 
-## Observação para o testes utilizando postamn:
+## Observação para os testes utilizando postman:
 * O backup do colletions do postman se encontra na raiz do repositório.
 * Para acessa as informações da api é necessário criar um user, logar para gerar o token e depois adicionar o token no header.
