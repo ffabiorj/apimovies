@@ -28,6 +28,15 @@ make run
 
 ```
 
+## Execute tests
+1. Realizar setup dos tests
+2. Executar o comando
+
+```
+make setup.test
+make test
+```
+
 ## Deploy para AWS
 1. Configurar awscli
 2. Executar o comando de deploy
