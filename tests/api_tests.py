@@ -17,7 +17,7 @@ class MoviesTests(BaseMoviesTests):
         response = self.client.get(url_for('api.movies'), headers=self.header)
         self.assertEqual(200, response.status_code)
 
-    def test_get(self):
+    def test_get_movies(self):
         movie = MovieFactory()
         movie_schema = MovieSchema()
         expected = [movie_schema.dump(movie.default).data]
