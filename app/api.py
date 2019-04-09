@@ -25,6 +25,7 @@ def movie(id):
         return movie_schema.jsonify(movie), 200
     return jsonify({}), 404
 
+
 @api.route('/user', methods=['POST'])
 def register():
 
