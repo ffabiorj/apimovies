@@ -6,3 +6,4 @@ flask-migrate==2.4.0
 marshmallow-sqlalchemy==0.16.1
 flask_marshamallow==0.10.0
 flask-jwt-extended==3.18.0
+zappa==0.48.2

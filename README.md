@@ -29,3 +29,11 @@ make run
 ```
 
 
+## Deploy para AWS
+1. Configurar awscli
+2. Executar o comando de deploy
+
+```
+acesse https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-install.html
+make deploy
+```
