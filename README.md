@@ -1,6 +1,6 @@
 # API DE FILMES
 Ferramentas utilizadas no desenvolvimento
-* Flask
+* flask
 * flask_sqlalchemy
 * flask_migrate
 * flask-marshmallow
