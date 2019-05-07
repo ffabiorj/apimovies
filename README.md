@@ -27,6 +27,17 @@ make run
 http://127.0.0.1:5000/api/v1/movies
 ```
 
+## Endpoints da api
+Para acessar os endpoints, você precisa criar um login com token utilizando o endpoint user
+
+```
+http://127.0.0.1:5000/api/v1/user
+http://127.0.0.1:5000/api/v1/login
+http://127.0.0.1:5000/api/v1/movies
+http://127.0.0.1:5000/api/v1/movie/<id>
+
+```
+
 ## Execute tests
 1. Realizar setup dos tests
 2. Executar o comando
